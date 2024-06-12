@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_community.llms import OpenAI
+from langchain_community.llms import openai
 
 st.title('DiasCook || Recipe Recommendation System')
 
@@ -7,7 +7,7 @@ openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
 def generate_recommendations(input_text):
 	try:
-		llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key,
+		llm = openai(temperature=0.7, openai_api_key=openai_api_key,
 					model="gpt-3.5-turbo-0125")
 		prompt = f"Given the ingredients: {input_text}, suggest an easy-to-cook step-by-step recipe."
 		response = llm(prompt)
